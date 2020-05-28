@@ -1,2 +1,11 @@
 ---
 # vars file for esxi-letsencrypt
+certs_path: ~/lets-encrypt
+crt_common_name: vc01.example.com
+crt_subject_alt_name:
+  - esxi01.example.com
+  - esxi02.example.com
+  - esxi03.example.com
+cf_zone: example.com
+cf_account_email: cloudflarelogin@example.com
+cf_account_api_token: YOUR_CF_API_KEY
