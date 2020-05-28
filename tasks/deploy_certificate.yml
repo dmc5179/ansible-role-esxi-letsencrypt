@@ -1,5 +1,15 @@
 ---
 
+- name: Enable ssh service on host
+  vmware_host_service_manager:
+#    hostname: '{{ vcenter_hostname }}'
+    username: '{{ esxi_username }}'
+    password: '{{ esxi_password }}'
+    esxi_hostname: '{{ esxi_hostname }}'
+    service_name: sshd
+    state: start
+  delegate_to: localhost
+
 - name: copy key to host
   copy:
     src: "{{ certs_path }}/{{ crt_common_name }}.pem"
@@ -14,3 +24,13 @@
 - name: restart hostd
   command: /etc/init.d/hostd restart
   when: cert is changed
+
+- name: Disable ssh service on host
+  vmware_host_service_manager:
+#    hostname: '{{ vcenter_hostname }}'
+    username: '{{ esxi_username }}'
+    password: '{{ esxi_password }}'
+    esxi_hostname: '{{ esxi_hostname }}'
+    service_name: sshd
+    state: stop
+  delegate_to: localhost

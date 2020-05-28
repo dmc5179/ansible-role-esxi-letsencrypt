@@ -1,5 +1,9 @@
 ---
 # defaults file for esxi-letsencrypt
 
+esxi_username: ''
+esxi_password: ''
+esxi_hostname: ''
+
 generate: true
 deploy: false
