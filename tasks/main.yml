@@ -1,2 +1,10 @@
 ---
 # tasks file for esxi-letsencrypt
+
+- name: Generate Certificates
+  include_tasks: generate_certificate.yml
+  when: (generate | bool)
+
+- name: Deploy Certificates
+  include_tasks: deploy_certificate.yml
+  when: (deploy | bool)

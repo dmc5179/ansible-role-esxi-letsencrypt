@@ -1,2 +1,5 @@
 ---
 # defaults file for esxi-letsencrypt
+
+generate: true
+deploy: false
